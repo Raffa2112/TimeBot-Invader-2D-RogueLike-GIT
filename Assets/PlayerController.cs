@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] int movementSpeed;
     private Vector2 movementInput;
 
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
         movementInput.y = Input.GetAxisRaw("Vertical");
 
         //transform.position = transform.position + new Vector3(0.1f, 1f, 0f);
-        transform.position += new Vector3(movementInput.x,movementInput.y, 0f) * movementSpeed * Time.deltaTime;
-       
+        //transform.position += new Vector3(movementInput.x,movementInput.y, 0f) * movementSpeed * Time.deltaTime;
+        playerRigidbody.velocity = movementInput * movementSpeed;
     }
 }
