@@ -35,6 +35,17 @@ public class PlayerController : MonoBehaviour
 
         weaponsArm.rotation = Quaternion.Euler(0, 0, angle);
 
+        if (mousePosition.x < screenPoint.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            weaponsArm.localScale = new Vector3(-1f, -1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+            weaponsArm.localScale = Vector3.one;
 
+        }
     }
 }
+
