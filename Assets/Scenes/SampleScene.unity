@@ -500,6 +500,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doom Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2873356839625643040, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892425810727452789, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6598666059286082337, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.79
@@ -552,7 +560,12 @@ PrefabInstance:
       propertyPath: firePosition
       value: 
       objectReference: {fileID: 454344766}
-    m_RemovedComponents: []
+    - target: {fileID: 6738734389460854466, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
+      propertyPath: timeBetweenShots
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3892425810727452789, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
