@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] int movementSpeed;
 
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform firePoint;
+
     private Vector2 movementInput;
 
     private Animator playerAnimator;
@@ -60,6 +63,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerAnimator.SetBool("isWalking", false);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
     }
 }
