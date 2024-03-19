@@ -8,9 +8,9 @@ public class PlayerBulletController : MonoBehaviour
     [SerializeField] float bulletSpeed = 5f;
 
     private Rigidbody2D bulletRigidBody;
+    [SerializeField] GameObject BulletImpactEffect;
 
-    [SerializeField] GameObject bullet;
-    [SerializeField] Transform firePosition;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +27,7 @@ public class PlayerBulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(BulletImpactEffect, transform.position, transform.rotation);
         Destroy(gameObject);  
     }
 }
