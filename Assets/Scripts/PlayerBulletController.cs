@@ -27,8 +27,9 @@ public class PlayerBulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Instantiate(BulletImpactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);  
+        Instantiate(BulletImpactEffect.transform, transform.position, transform.rotation);
+        //impactRffect.GetComponent<ImpactEffectDestroyer>().Destroy();
+        Destroy(gameObject);
     }
 }
 

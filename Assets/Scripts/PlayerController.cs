@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform firePoint;
 
+    [SerializeField] bool isWeaponAutomatic;
+
     [SerializeField] float timeBetweenShots;
 
     private float shotCounter = 0;
@@ -71,12 +73,12 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("isWalking", false);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isWeaponAutomatic)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
 
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && isWeaponAutomatic)
         {
             shotCounter -= Time.deltaTime; //shotCounter - Time.deltaTime;
         }
