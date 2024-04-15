@@ -10,6 +10,9 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D enemyRigidbody;
 
     [SerializeField] float playerChaseRange;
+    [SerializeField] float playerKeepChaseRange;
+
+    public bool isChasing;
 
     private Vector3 directionToMoveIn;
 
@@ -18,6 +21,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyRigidbody = GetComponent<Rigidbody2D>();
         PlayerToChase = FindObjectOfType<PlayerController>().transform;
     }
 
@@ -26,17 +30,30 @@ public class EnemyController : MonoBehaviour
     {
       if(Vector3.Distance(transform.position, PlayerToChase.position)<playerChaseRange)
         {
-            Debug.Log("Player is in chase range");
+            directionToMoveIn = PlayerToChase.position - transform.position;
+            isChasing = true;
         }
-      else
+        else if (Vector3.Distance(transform.position, PlayerToChase.position) < playerKeepChaseRange && isChasing)
         {
-            Debug.Log("Player is out of chase Range");
+            directionToMoveIn = PlayerToChase.position - transform.position;
         }
+        
+        else
+        {
+            directionToMoveIn = Vector3.zero;
+            isChasing = false;
+        }
+        directionToMoveIn.Normalize();
+        enemyRigidbody.velocity = directionToMoveIn * enemySpeed;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerChaseRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, playerKeepChaseRange);
+
     }
 }
