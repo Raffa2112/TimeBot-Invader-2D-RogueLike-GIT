@@ -16,17 +16,20 @@ public class EnemyController : MonoBehaviour
 
     private Vector3 directionToMoveIn;
 
-    Transform PlayerToChase;                                      
+    Transform PlayerToChase;
+    private Animator enemyAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRigidbody = GetComponent<Rigidbody2D>();
         PlayerToChase = FindObjectOfType<PlayerController>().transform;
+
+        enemyAnimator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
-    void Update()
+    void Update ()
     {
       if(Vector3.Distance(transform.position, PlayerToChase.position)<playerChaseRange)
         {
@@ -45,6 +48,26 @@ public class EnemyController : MonoBehaviour
         }
         directionToMoveIn.Normalize();
         enemyRigidbody.velocity = directionToMoveIn * enemySpeed;
+
+        if (directionToMoveIn != Vector3.zero)
+        {
+            enemyAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("isWalking", false);
+        }
+
+        if (PlayerToChase.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = Vector3.one;
+        }
+
+
     }
 
     private void OnDrawGizmosSelected()

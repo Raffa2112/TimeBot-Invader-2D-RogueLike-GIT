@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
 
         playerAnimator = GetComponent<Animator>();
+        shotCounter = timeBetweenShots;
     }
 
     // Update is called once per frame
@@ -40,7 +41,11 @@ public class PlayerController : MonoBehaviour
         movementInput.x = Input.GetAxisRaw("Horizontal");
         movementInput.y = Input.GetAxisRaw("Vertical");
 
+
         movementInput.Normalize();
+
+        // transform. position = transform. position + new Vector3(0.1f, . If, Of);
+        // transform. position += new Vector3(movementInput.x, movementlnput.y, Of) * movementSpeed * Time.de1taTime;
 
         playerRigidbody.velocity = movementInput * movementSpeed;
 
