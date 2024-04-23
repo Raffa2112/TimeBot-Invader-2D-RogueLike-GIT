@@ -10,6 +10,8 @@ public class PlayerBulletController : MonoBehaviour
     private Rigidbody2D bulletRigidBody;
     [SerializeField] GameObject BulletImpactEffect;
 
+    [SerializeField] int damageAmount = 10;
+
 
 
     // Start is called before the first frame update
@@ -29,6 +31,10 @@ public class PlayerBulletController : MonoBehaviour
     {
         Instantiate(BulletImpactEffect.transform, transform.position, transform.rotation);
         //impactRffect.GetComponent<ImpactEffectDestroyer>().Destroy();
+
+        if (collision.CompareTag("Enemy"))
+            collision.GetComponent<EnemyController>().DamageEnemy(damageAmount);                   
+
         Destroy(gameObject);
     }
 }

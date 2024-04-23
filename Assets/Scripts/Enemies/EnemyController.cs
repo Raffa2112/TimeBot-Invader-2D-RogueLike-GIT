@@ -7,6 +7,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] float enemySpeed;
 
+    [SerializeField] int enemyHealth = 100;
+
     private Rigidbody2D enemyRigidbody;
 
     [SerializeField] float playerChaseRange;
@@ -68,7 +70,16 @@ public class EnemyController : MonoBehaviour
         }
 
 
+    }   public void DamageEnemy(int damageTaken)
+    {
+        enemyHealth -= damageTaken;
+        if(enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+        
+
 
     private void OnDrawGizmosSelected()
     {
