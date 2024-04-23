@@ -21,6 +21,8 @@ public class EnemyController : MonoBehaviour
     Transform PlayerToChase;
     private Animator enemyAnimator;
 
+    [SerializeField] GameObject deathSplatter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,9 +77,12 @@ public class EnemyController : MonoBehaviour
         enemyHealth -= damageTaken;
         if(enemyHealth <= 0)
         {
+            Instantiate(deathSplatter, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
+
+
         
 
 

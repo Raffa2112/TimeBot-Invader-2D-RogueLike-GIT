@@ -12,6 +12,7 @@ public class PlayerBulletController : MonoBehaviour
 
     [SerializeField] int damageAmount = 10;
 
+  
 
 
     // Start is called before the first frame update

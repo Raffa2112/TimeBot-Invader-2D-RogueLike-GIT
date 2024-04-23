@@ -696,6 +696,7 @@ MonoBehaviour:
   playerChaseRange: 3.62
   playerKeepChaseRange: 5.66
   isChasing: 0
+  deathSplatter: {fileID: 1325718319040518502, guid: 051f14c0cdd004448b8c8c0e9c6827c5, type: 3}
 --- !u!50 &1336297823
 Rigidbody2D:
   serializedVersion: 4
