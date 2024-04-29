@@ -12,7 +12,7 @@ public class PlayerBulletController : MonoBehaviour
 
     [SerializeField] int damageAmount = 10;
 
-    [SerializeField] GameObject damageEffect;
+    [SerializeField] GameObject[] damageEffects;
 
   
 
@@ -36,15 +36,15 @@ public class PlayerBulletController : MonoBehaviour
         //impactRffect.GetComponent<ImpactEffectDestroyer>().Destroy();
 
         if (collision.CompareTag("Enemy"))
-        { 
-
-            Instantiate(damageEffect, transform.position, transform.rotation);
+        {
+            int selectedSplatter = Random.Range(0, damageEffects.Length);
+            Instantiate(damageEffects[selectedSplatter], transform.position, transform.rotation);
             collision.GetComponent<EnemyController>().DamageEnemy(damageAmount);     
 
        
         }
 
-
+        
         else
         {
 
