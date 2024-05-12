@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8461423760515953868}
   - component: {fileID: 549068669149842171}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1749601483
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: acce7626eb5d7404eb55647362a279b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2603550543645273749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fire Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,10 +128,10 @@ GameObject:
   - component: {fileID: 975734382122458795}
   - component: {fileID: 4804645501464926913}
   - component: {fileID: 8874289529372719238}
-  - component: {fileID: 3892425810727452789}
-  m_Layer: 0
+  - component: {fileID: 5385821168420615635}
+  m_Layer: 6
   m_Name: Doom Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +170,10 @@ MonoBehaviour:
   playerRigidbody: {fileID: 4804645501464926913}
   weaponsArm: {fileID: 5946670388931649402}
   movementSpeed: 10
+  bullet: {fileID: 8692725231036438698, guid: 907d6a0610f62ac4298ca671c6a863d5, type: 3}
+  firePoint: {fileID: 2603550543645273749}
+  isWeaponAutomatic: 0
+  timeBetweenShots: 0.1
 --- !u!70 &975734382122458795
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -253,58 +257,51 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!212 &3892425810727452789
-SpriteRenderer:
+--- !u!61 &5385821168420615635
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2730844924344587758}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1930322362, guid: 11e618cb9471fb8459ad7b905d5ea9b7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 0.75555557, y: 0.75555557}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0693109, y: -0.017327547}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0924144, y: 2.0281086}
+  m_EdgeRadius: 0
 --- !u!1 &2736098887919181230
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5946670388931649402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: weapons Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8728438151330015353}
   - component: {fileID: 8867239887951948455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +406,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1749601483
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -1016799076, guid: 11e618cb9471fb8459ad7b905d5ea9b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -432,7 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3976319263776503896}
   - component: {fileID: 4118790842374601238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +490,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1749601483
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d30441ad536e7984a8845d747fa818a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -516,7 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6842169431385261171}
   - component: {fileID: 1728824620173602880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +574,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1749601483
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 573d59eead89b754283e18adeca2f975, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
