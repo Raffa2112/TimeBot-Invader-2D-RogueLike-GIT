@@ -38,16 +38,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementInput.x = Input.GetAxisRaw("Horizontal");
-        movementInput.y = Input.GetAxisRaw("Vertical");
-
-
-        movementInput.Normalize();
-
-        // transform. position = transform. position + new Vector3(0.1f, . If, Of);
-        // transform. position += new Vector3(movementInput.x, movementlnput.y, Of) * movementSpeed * Time.de1taTime;
-
-        playerRigidbody.velocity = movementInput * movementSpeed;
+        PlayerMoving();
 
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
@@ -69,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if(movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero)
         {
             playerAnimator.SetBool("isWalking", true);
         }
@@ -78,21 +69,40 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("isWalking", false);
         }
 
+        PlayerShooting();
+
+    }
+
+    private void PlayerShooting()
+    {
         if (Input.GetMouseButtonDown(0) && !isWeaponAutomatic)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
         }
 
-        if(Input.GetMouseButton(0) && isWeaponAutomatic)
+        if (Input.GetMouseButton(0) && isWeaponAutomatic)
         {
             shotCounter -= Time.deltaTime; //shotCounter - Time.deltaTime;
         }
-        if (shotCounter <=0)
+        if (shotCounter <= 0)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
             shotCounter = timeBetweenShots;
         }
+    }
 
+    private void PlayerMoving()
+    {
+        movementInput.x = Input.GetAxisRaw("Horizontal");
+        movementInput.y = Input.GetAxisRaw("Vertical");
+
+
+        movementInput.Normalize();
+
+        // transform. position = transform. position + new Vector3(0.1f, . If, Of);
+        // transform. position += new Vector3(movementInput.x, movementlnput.y, Of) * movementSpeed * Time.de1taTime;
+
+        playerRigidbody.velocity = movementInput * movementSpeed;
     }
 }
 

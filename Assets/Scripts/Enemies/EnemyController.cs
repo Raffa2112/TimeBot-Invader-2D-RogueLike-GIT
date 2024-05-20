@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] GameObject deathSplatter;
     [SerializeField] GameObject damageEffect;
+    [SerializeField] float shootingRange;
 
     // Start is called before the first frame update
     void Start()
@@ -82,7 +83,9 @@ public class EnemyController : MonoBehaviour
             transform.localScale = Vector3.one;
         }
 
-        if(!meleeAttacker && readyToShoot)
+        if(!meleeAttacker && 
+            readyToShoot && 
+            Vector3.Distance(PlayerToChase.transform.position, transform.position) < shootingRange)
         {
            
             readyToShoot = false;
@@ -125,6 +128,9 @@ public class EnemyController : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, playerKeepChaseRange);
+     
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, shootingRange);
 
     }
 }

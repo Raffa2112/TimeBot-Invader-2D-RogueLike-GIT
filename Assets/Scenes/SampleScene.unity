@@ -614,11 +614,11 @@ Transform:
   m_GameObject: {fileID: 1287470134}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.16, y: 0.74, z: 0.015705759}
+  m_LocalPosition: {x: 1.79, y: 0.03, z: 0.015705759}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1336297821}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336297820
 GameObject:
@@ -653,6 +653,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1058673133}
+  - {fileID: 1287470135}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1336297822
@@ -678,6 +679,7 @@ MonoBehaviour:
   timeBetweenShots: 1
   deathSplatter: {fileID: 1325718319040518502, guid: 051f14c0cdd004448b8c8c0e9c6827c5, type: 3}
   damageEffect: {fileID: 1887952369012568149, guid: acd85ffc1358ed74480812ec23778bd1, type: 3}
+  shootingRange: 8.36
 --- !u!50 &1336297823
 Rigidbody2D:
   serializedVersion: 4
@@ -814,5 +816,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 707155851}
   - {fileID: 2163470307350048994}
-  - {fileID: 1287470135}
   - {fileID: 1336297821}
