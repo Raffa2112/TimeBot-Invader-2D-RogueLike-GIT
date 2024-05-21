@@ -40,6 +40,28 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMoving();
 
+        PointingGunAtMouse();
+
+        AnimatingThePlayer();
+
+        PlayerShooting();
+
+    }
+
+    private void AnimatingThePlayer()
+    {
+        if (movementInput != Vector2.zero)
+        {
+            playerAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("isWalking", false);
+        }
+    }
+
+    private void PointingGunAtMouse()
+    {
         Vector3 mousePosition = Input.mousePosition;
         Vector3 screenPoint = mainCamera.WorldToScreenPoint(transform.localPosition);
 
@@ -59,18 +81,6 @@ public class PlayerController : MonoBehaviour
             weaponsArm.localScale = Vector3.one;
 
         }
-
-        if (movementInput != Vector2.zero)
-        {
-            playerAnimator.SetBool("isWalking", true);
-        }
-        else
-        {
-            playerAnimator.SetBool("isWalking", false);
-        }
-
-        PlayerShooting();
-
     }
 
     private void PlayerShooting()

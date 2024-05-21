@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b46d85886881454db5577b56dba04b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 2
+  bulletSpeed: 4.49
   BulletImpactEffect: {fileID: 5489927501352227225, guid: 80f8c8f033176f845beb95d421ff93bd, type: 3}
   damageAmount: 10
   damageEffects:

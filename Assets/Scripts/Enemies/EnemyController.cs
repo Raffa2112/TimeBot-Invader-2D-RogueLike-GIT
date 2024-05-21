@@ -47,16 +47,27 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-      if(Vector3.Distance(transform.position, PlayerToChase.position)<playerChaseRange)
+        EnemyChasingPlayer();
+
+        AnimatingTheEnemy();
+        EnemyFacingPlayerDirection();
+
+        EnemyThrowingSwords();
+
+    }
+
+    private void EnemyChasingPlayer()
+    {
+        if (Vector3.Distance(transform.position, PlayerToChase.position) < playerChaseRange)
+        {
+            directionToMoveIn = PlayerToChase.position - transform.position; //Player Chase range(RED)
+            isChasing = true; //getting the direction of Enemy chase
+        }
+        else if (Vector3.Distance(transform.position, PlayerToChase.position) < playerKeepChaseRange && isChasing) //Player keep Chase range(YELLOW)
         {
             directionToMoveIn = PlayerToChase.position - transform.position;
-            isChasing = true;
         }
-        else if (Vector3.Distance(transform.position, PlayerToChase.position) < playerKeepChaseRange && isChasing)
-        {
-            directionToMoveIn = PlayerToChase.position - transform.position;
-        }
-        
+
         else
         {
             directionToMoveIn = Vector3.zero;
@@ -64,35 +75,44 @@ public class EnemyController : MonoBehaviour
         }
         directionToMoveIn.Normalize();
         enemyRigidbody.velocity = directionToMoveIn * enemySpeed;
+    }
 
-        if (directionToMoveIn != Vector3.zero)
-        {
-            enemyAnimator.SetBool("isWalking", true);
-        }
-        else
-        {
-            enemyAnimator.SetBool("isWalking", false);
-        }
-
+    private void EnemyFacingPlayerDirection()
+    {
         if (PlayerToChase.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = Vector3.one; //Enemy turns to face in direction of Player
         }
+    }
 
-        if(!meleeAttacker && 
-            readyToShoot && 
-            Vector3.Distance(PlayerToChase.transform.position, transform.position) < shootingRange)
+    private void AnimatingTheEnemy()
+    {
+        if (directionToMoveIn != Vector3.zero)
         {
-           
+            enemyAnimator.SetBool("isWalking", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("isWalking", false); //Access to animations
+        }
+    }
+
+    private void EnemyThrowingSwords()
+    {
+        if (!meleeAttacker &&
+                    readyToShoot &&
+                    Vector3.Distance(PlayerToChase.transform.position, transform.position) < shootingRange)
+        {
+
             readyToShoot = false;
             StartCoroutine(FireEnemyProjectile());
 
         }
-        // shoot the bullet
+        // Throwing swords
 
     }
 
