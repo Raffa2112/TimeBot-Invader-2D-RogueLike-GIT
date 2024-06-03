@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1383555454656830106}
   - component: {fileID: 6070800654840224139}
   - component: {fileID: -2298816570416269444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flying Skelleton Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
