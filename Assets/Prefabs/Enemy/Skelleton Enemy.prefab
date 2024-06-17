@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4480885000992438459}
   - component: {fileID: 2318371096383681189}
   - component: {fileID: 6771508100490662873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 7361479522936831692}
   - component: {fileID: 6293504269378466670}
   - component: {fileID: 5757588401591633739}
-  m_Layer: 0
-  m_Name: Enemy
+  m_Layer: 8
+  m_Name: Skelleton Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 2
-  enemyHealth: 100
-  playerChaseRange: 3.62
+  enemyHealth: 3
+  playerChaseRange: 2.55
   playerKeepChaseRange: 5.66
   isChasing: 0
   meleeAttacker: 0
@@ -247,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1837520434444112939}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
