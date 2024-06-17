@@ -21,8 +21,24 @@ public class RoomMannager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     for (int i = enemies.Count -1; i > -1; i --)
+        {
+            if (enemies[i] == null)
+            {
+                enemies.RemoveAt(i);
+            }
+        }
+        Debug.Log("the number of enemies is: " + enemies.Count);
+
+        if (enemies.Count == 0)
+        {
+            for(int i = 0; i < doorsToClose.Length; i++)
+            {
+                doorsToClose[i].SetActive(false);
+            }
+        }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
