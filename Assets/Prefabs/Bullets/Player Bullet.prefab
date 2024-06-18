@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5959677588066612815}
   - component: {fileID: 2468257111615085550}
+  - component: {fileID: 6893531290117619998}
   - component: {fileID: 8813562465590075926}
   - component: {fileID: 1570348990178955306}
-  - component: {fileID: 6893531290117619998}
   - component: {fileID: -5648206841155906687}
   m_Layer: 3
   m_Name: Player Bullet
@@ -88,6 +88,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6893531290117619998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692725231036438698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b46d85886881454db5577b56dba04b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpeed: 8.14
+  BulletImpactEffect: {fileID: 5489927501352227225, guid: 80f8c8f033176f845beb95d421ff93bd, type: 3}
+  damageAmount: 10
+  damageEffects:
+  - {fileID: 1887952369012568149, guid: acd85ffc1358ed74480812ec23778bd1, type: 3}
+  - {fileID: 3692209677387114320, guid: 95fb2276f7bf4124580d689bf27555d4, type: 3}
+  - {fileID: 3856532993963978373, guid: 943d9c72a49fd8b458b1295baf3f0511, type: 3}
+  - {fileID: 3991411197792754842, guid: 5fd6adb5b0a42ff42a4cf6214de33e71, type: 3}
+  - {fileID: 8239946915017321428, guid: f9e9c374ea5ab454f8cb4cbab4fdb85c, type: 3}
 --- !u!50 &8813562465590075926
 Rigidbody2D:
   serializedVersion: 4
@@ -160,27 +181,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0176778, y: 0.1199581}
   m_EdgeRadius: 0
---- !u!114 &6893531290117619998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692725231036438698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b46d85886881454db5577b56dba04b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletSpeed: 4.49
-  BulletImpactEffect: {fileID: 5489927501352227225, guid: 80f8c8f033176f845beb95d421ff93bd, type: 3}
-  damageAmount: 10
-  damageEffects:
-  - {fileID: 1887952369012568149, guid: acd85ffc1358ed74480812ec23778bd1, type: 3}
-  - {fileID: 3692209677387114320, guid: 95fb2276f7bf4124580d689bf27555d4, type: 3}
-  - {fileID: 3856532993963978373, guid: 943d9c72a49fd8b458b1295baf3f0511, type: 3}
-  - {fileID: 3991411197792754842, guid: 5fd6adb5b0a42ff42a4cf6214de33e71, type: 3}
-  - {fileID: 8239946915017321428, guid: f9e9c374ea5ab454f8cb4cbab4fdb85c, type: 3}
 --- !u!96 &-5648206841155906687
 TrailRenderer:
   serializedVersion: 3

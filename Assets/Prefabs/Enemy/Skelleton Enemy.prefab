@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677dada3a7033f8418461d9ce35d4c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 2
-  enemyHealth: 3
-  playerChaseRange: 2.55
-  playerKeepChaseRange: 5.66
+  enemySpeed: 4.81
+  enemyHealth: 90
+  playerChaseRange: 5.44
+  playerKeepChaseRange: 6.53
   isChasing: 0
   meleeAttacker: 0
   enemyProjectile: {fileID: 8733776845760933116, guid: a68972e0d063d1c42a4850f54db7da95, type: 3}
