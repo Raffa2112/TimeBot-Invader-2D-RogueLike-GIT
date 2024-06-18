@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
@@ -11,11 +10,9 @@ public class LevelExit : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            if(SceneManager.sceneCount > 0)
-                {
-                SceneManager.LoadScene(levelToLoad);
-                }
+            StartCoroutine(LevelManager.instance.LoadingNextLevel(levelToLoad));
         }
     }
-
+    
+    
 }
