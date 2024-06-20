@@ -166,7 +166,8 @@ GameObject:
   m_Component:
   - component: {fileID: 334590211}
   - component: {fileID: 334590210}
-  m_Layer: 0
+  - component: {fileID: 334590212}
+  m_Layer: 9
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,6 +203,68 @@ Transform:
   - {fileID: 847894080}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &334590212
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 334590209}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 13.304554, y: 38.960987}
+      - {x: 3.2646472, y: 40.38831}
+      - {x: -6.918621, y: 39.104042}
+      - {x: -15.20729, y: 40.056904}
+      - {x: -34.037064, y: 37.813423}
+      - {x: -34.998356, y: 26.588085}
+      - {x: -36.7038, y: 19.28497}
+      - {x: -30.978067, y: -4.1236534}
+      - {x: -24.094715, y: -7.8901415}
+      - {x: -22.883715, y: -14.550325}
+      - {x: -19.237545, y: -21.12952}
+      - {x: -8.125984, y: -21.97793}
+      - {x: 4.928173, y: -19.656403}
+      - {x: 23.305641, y: -18.673515}
+      - {x: 23.922508, y: -3.9002228}
+      - {x: 20.173464, y: 15.486195}
+      - {x: 20.46776, y: 29.945494}
+  m_UseDelaunayMesh: 0
 --- !u!1 &410039578
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +385,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4896386, y: 26.281765, z: -11.868114}
+  m_LocalPosition: {x: -13.910362, y: 26.011766, z: -11.868114}
   m_LocalScale: {x: 0.36, y: 0.36, z: 0.36}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -420,7 +483,7 @@ GameObject:
   - component: {fileID: 847894085}
   - component: {fileID: 847894084}
   - component: {fileID: 847894083}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7016,7 +7079,7 @@ Transform:
   m_GameObject: {fileID: 991634513}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.4896386, y: 26.281765, z: -11.868114}
+  m_LocalPosition: {x: -13.910362, y: 26.011766, z: -11.868114}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7037,7 +7100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 1376137231}
+  m_BoundingShape2D: {fileID: 334590212}
   m_ConfineScreenEdges: 1
   m_Damping: 1.12
 --- !u!1001 &1170980639
@@ -7260,7 +7323,7 @@ GameObject:
   - component: {fileID: 1582260442}
   - component: {fileID: 1582260444}
   - component: {fileID: 1582260443}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77534,11 +77597,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598666059286082337, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7
+      value: -20.1
       objectReference: {fileID: 0}
     - target: {fileID: 6598666059286082337, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.8
+      value: 27.53
       objectReference: {fileID: 0}
     - target: {fileID: 6598666059286082337, guid: aa14b65aef0144d478b68307ff6c2cfc, type: 3}
       propertyPath: m_LocalPosition.z
