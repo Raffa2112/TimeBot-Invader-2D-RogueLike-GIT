@@ -24,6 +24,11 @@ public class PlayerController : MonoBehaviour
 
     private Animator playerAnimator;
 
+    //Dashing
+    private float currentMovementSpeed;
+    private bool canDash;
+    [SerializeField] float dashSpeed = 20f, dashLength = 0.5f, dashCooldown = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,8 @@ public class PlayerController : MonoBehaviour
 
         playerAnimator = GetComponent<Animator>();
         shotCounter = timeBetweenShots;
+        currentMovementSpeed = movementSpeed;
+        canDash = true;
     }
 
     // Update is called once per frame
@@ -45,6 +52,17 @@ public class PlayerController : MonoBehaviour
         AnimatingThePlayer();
 
         PlayerShooting();
+
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
+        {
+            currentMovementSpeed = dashSpeed;
+            canDash = false;
+        }
+        else 
+        {
+            currentMovementSpeed = movementSpeed;            
+        }
+
 
     }
 
@@ -112,7 +130,7 @@ public class PlayerController : MonoBehaviour
         // transform. position = transform. position + new Vector3(0.1f, . If, Of);
         // transform. position += new Vector3(movementInput.x, movementlnput.y, Of) * movementSpeed * Time.de1taTime;
 
-        playerRigidbody.velocity = movementInput * movementSpeed;
+        playerRigidbody.velocity = movementInput * currentMovementSpeed;
     }
 }
 
