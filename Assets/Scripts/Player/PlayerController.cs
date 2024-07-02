@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         shotCounter = timeBetweenShots;
         currentMovementSpeed = movementSpeed;
-        canDash = true;
+        canDash = true;      
     }
 
     // Update is called once per frame
@@ -61,6 +61,9 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(DashCooldownCounter());
 
             StartCoroutine(DashLengthCounter());
+
+            playerAnimator.SetTrigger("Dash");
+            //acces the Player Health Handeler and make sure hes invinceble for a while
         }
         
     }
@@ -114,7 +117,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void PlayerShooting()
+
     {
+        if(!canDash) { return; } //{return;} means get out of method
+
         if (Input.GetMouseButtonDown(0) && !isWeaponAutomatic)
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation);
