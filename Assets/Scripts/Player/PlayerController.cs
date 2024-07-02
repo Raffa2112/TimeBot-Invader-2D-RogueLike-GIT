@@ -57,12 +57,24 @@ public class PlayerController : MonoBehaviour
         {
             currentMovementSpeed = dashSpeed;
             canDash = false;
-        }
-        else 
-        {
-            currentMovementSpeed = movementSpeed;            
-        }
 
+            StartCoroutine(DashCooldownCounter());
+
+            StartCoroutine(DashLengthCounter());
+        }
+        
+    }
+    IEnumerator DashCooldownCounter()
+    {
+        yield return new WaitForSeconds(dashCooldown);
+
+        canDash = true;
+    }
+    IEnumerator DashLengthCounter()
+    {
+        yield return new WaitForSeconds(dashLength);
+
+        currentMovementSpeed = movementSpeed;
 
     }
 
